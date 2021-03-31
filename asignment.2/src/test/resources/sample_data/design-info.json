@@ -1,0 +1,22 @@
+{
+  "sampleData": {
+    "b6c3d8a6-5f32-4e06-8784-82ce7373691c": {
+      "payload": "sample_data/list_json.json"
+    },
+    "256a774b-dfe8-4900-ae03-e3dc27d09a65": {
+      "payload": "sample_data/list_json_1.json"
+    },
+    "6915bd0e-00fe-473e-a089-ed37f69bc307": {
+      "payload": "sample_data/json.json"
+    },
+    "8dce7f45-dd51-472a-aa47-1a470cd7a162": {
+      "payload": "sample_data/employeers.xml"
+    },
+    "3154180f-9bb0-43e0-a152-0160faaae3d8": {
+      "payload": "sample_data/list_csv.csv"
+    },
+    "7a924895-48ab-4a7c-8fe5-284c9d32d819": {
+      "payload": "sample_data/list_json_2.json"
+    }
+  }
+}

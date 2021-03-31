@@ -1,0 +1,69 @@
+#%RAML 1.0
+title: Notes-App
+version: 1.0
+traits:
+  Notetraits: !include /trait.raml
+types:
+  Notetypes: !include  /dataType.raml
+
+/notes:
+  description: 
+  get:
+    description: get list of Notes
+    responses:
+      200:
+        body:
+         application/json:
+           type: Notetypes
+          #  example: !include Example/example.raml
+
+  is:
+    Notetraits
+        
+  post:
+    description: create list of Notes
+    responses:
+      200:
+        body:
+          application/json:
+            example:
+              { 
+                "message" : "Note created"
+              }
+
+  /{note-id}:
+    description: 
+    get:
+      description: get list of Note Id
+      responses:
+        200:
+          body:
+            application/json:
+              example:
+               
+
+    put:
+      description: update list of Note Id
+      responses:
+        200:
+          body:
+            application/json:
+              example:
+                { 
+                  "message": "Note Id updated"
+                } 
+
+    delete:
+      description: delete list of Note Id
+      responses:
+        200:
+          body:
+            application/json:
+              example:
+                { 
+                  "message": "Note Id deleted"
+                }
+
+
+
+

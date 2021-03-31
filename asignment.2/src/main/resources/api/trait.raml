@@ -1,0 +1,31 @@
+#%RAML 1.0 Trait
+responses:
+  400:
+    description: bad request
+    body:
+      application/json:
+        # type: 
+        example:
+          {
+          "message":"bad request"
+          }
+
+  404:
+    description: not found
+    body:
+      application/json:
+        # type: 
+        example:
+          {
+          "message": "not found"
+          }
+  500:
+    description: internal service error
+    body:
+      application/json:
+        # type: 
+        example:
+          {
+          "message":"service error"
+          }
+

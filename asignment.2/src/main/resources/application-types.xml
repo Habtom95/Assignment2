@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<types:mule xmlns:types="http://www.mulesoft.org/schema/mule/types">
+  <types:catalog>
+    <types:type name="EmployeesJson" format="json">
+      <types:shape format="weave" example="examples/Employees.json"><![CDATA[%dw 2.0
+
+type EmployeesJson = {|
+  user: Array<{|    id: String,     firstname: String,     middlename: String,     lastname: String,     city: String,     state: String,     address: String,     email: String  |}>
+|} {"example": "{\\\"user\\\":[{\\\"id\\\":\\\"693cacff-147d-4b84-add8-dad773730508\\\",\\\"firstname\\\":\\\"piter\\\",\\\"middlename\\\":\\\"gg\\\",\\\"lastname\\\":\\\"gg\\\",\\\"city\\\":\\\"jj\\\",\\\"state\\\":\\\"New York\\\",\\\"address\\\":\\\"gg\\\",\\\"email\\\":\\\"ggh@hh.nn\\\"},{\\\"id\\\":\\\"53634496-86ee-420b-9d36-64969e417833\\\",\\\"firstname\\\":\\\"tomas\\\",\\\"middlename\\\":\\\"dsfsd\\\",\\\"lastname\\\":\\\"dsfsdf\\\",\\\"city\\\":\\\"AA\\\",\\\"state\\\":\\\"California\\\",\\\"address\\\":\\\"sdsd\\\",\\\"email\\\":\\\"dsdsf@gmail.com\\\"}]}"}
+
+]]></types:shape>
+    </types:type>
+    <types:type name="ProductsJson" format="json">
+      <types:shape format="weave" example="examples/ProductsAsig.json"><![CDATA[%dw 2.0
+
+type ProductsJson = Array<{|  id: String,   itemname: String,   itemcode: String,   price: String|}> {"example": "[{\\\"id\\\":\\\"693cacff-147d-4b84-add8-dad773730508\\\",\\\"itemname\\\":\\\"ss\\\",\\\"itemcode\\\":\\\"0001\\\",\\\"price\\\":\\\"50\\\"},{\\\"id\\\":\\\"693cacff-147d-4b84-add8-dad773730508\\\",\\\"itemname\\\":\\\"bcc\\\",\\\"itemcode\\\":\\\"0002\\\",\\\"price\\\":\\\"100\\\"},{\\\"id\\\":\\\"693cacff-147d-4b84-add8-dad773730508\\\",\\\"itemname\\\":\\\"hj\\\",\\\"itemcode\\\":\\\"0003\\\",\\\"price\\\":\\\"200\\\"},{\\\"id\\\":\\\"693cacff-147d-4b84-add8-dad773730508\\\",\\\"itemname\\\":\\\"uiu\\\",\\\"itemcode\\\":\\\"0004\\\",\\\"price\\\":\\\"20\\\"}]"}
+
+]]></types:shape>
+    </types:type>
+    <types:type name="EmployeeXml" format="xml">
+      <types:example format="xml" element="employeers" location="examples/Employeexml.xml"/>
+    </types:type>
+    <types:type name="EmployeeCsv" format="csv">
+      <types:shape format="weave" example="examples/EMployeeAsign.csv"><![CDATA[%dw 2.0
+
+type EmployeeCsv = Array<{|  EmployeeName: String,   " Age": String,   " EmplloyeeSalary": String|}> {"isQuotedString": "false",
+"header": "true",
+"headerLineNumber": "0",
+"separator": ","}
+
+]]></types:shape>
+      <types:properties>
+        <types:property name="headerLineNumber" value="0"/>
+        <types:property name="header" value="true"/>
+        <types:property name="isQuotedString" value="false"/>
+        <types:property name="separator" value=","/>
+      </types:properties>
+    </types:type>
+  </types:catalog>
+  <types:enrichment select="#6915bd0e-00fe-473e-a089-ed37f69bc307">
+    <types:processor-declaration>
+      <types:input-event>
+        <types:message>
+          <types:payload type="EmployeesJson"/>
+        </types:message>
+      </types:input-event>
+    </types:processor-declaration>
+  </types:enrichment>
+  <types:enrichment select="#b6c3d8a6-5f32-4e06-8784-82ce7373691c">
+    <types:processor-declaration>
+      <types:input-event>
+        <types:message>
+          <types:payload type="ProductsJson"/>
+        </types:message>
+      </types:input-event>
+    </types:processor-declaration>
+  </types:enrichment>
+  <types:enrichment select="#256a774b-dfe8-4900-ae03-e3dc27d09a65">
+    <types:processor-declaration>
+      <types:input-event>
+        <types:message>
+          <types:payload type="ProductsJson"/>
+        </types:message>
+      </types:input-event>
+    </types:processor-declaration>
+  </types:enrichment>
+  <types:enrichment select="#7a924895-48ab-4a7c-8fe5-284c9d32d819">
+    <types:processor-declaration>
+      <types:input-event>
+        <types:message>
+          <types:payload type="ProductsJson"/>
+        </types:message>
+      </types:input-event>
+    </types:processor-declaration>
+  </types:enrichment>
+  <types:enrichment select="#e85ca2e6-8626-4e6c-9dd5-77f54c6db9f0">
+    <types:processor-declaration>
+      <types:input-event>
+        <types:message>
+          <types:payload type="EmployeesJson"/>
+        </types:message>
+      </types:input-event>
+    </types:processor-declaration>
+  </types:enrichment>
+  <types:enrichment select="#8dce7f45-dd51-472a-aa47-1a470cd7a162"/>
+  <types:enrichment select="#3154180f-9bb0-43e0-a152-0160faaae3d8"/>
+</types:mule>
